@@ -1,0 +1,12 @@
+.QuoteDisplay {
+    background-color: darkgoldenrod;
+    color: white;
+    text-align: right;
+    padding-right: 3rem;
+  }
+
+.QuoteDisplay-button {
+    margin-bottom: 2rem;
+    color: white;
+    background-color: rgb(133, 99, 10);
+}
