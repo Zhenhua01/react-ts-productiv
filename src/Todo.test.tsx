@@ -1,8 +1,9 @@
 import { render } from "@testing-library/react";
+import { ITodo } from "./interfaces";
 import Todo from "./Todo";
 
-const todo = {
-  id: 1,
+const todo: ITodo = {
+  id: "1",
   title: "Code!",
   description: "Write some code",
   priority: 2,

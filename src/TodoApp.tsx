@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import TopTodo from "./TopTodo";
 import EditableTodoList from "./EditableTodoList";
 import TodoForm from "./TodoForm";
+import { ITodo, IFormData } from "./interfaces";
 
 /** App for managing a todo list.
  *
@@ -17,17 +18,17 @@ import TodoForm from "./TodoForm";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp({ initialTodos }) {
+function TodoApp({ initialTodos }: {initialTodos: ITodo[]}) {
   const [todos, setTodos] = useState(initialTodos);
 
   /** add a new todo to list */
-  function create(newTodo) {
+  function create(newTodo: IFormData) {
     let newTodoItem = { ...newTodo, id: uuid() };
     setTodos(todos => [...todos, newTodoItem]);
   }
 
   /** update a todo with updatedTodo */
-  function update(updatedTodo) {
+  function update(updatedTodo: ITodo) {
     let updatedTodos = (todos.map(todo =>
       todo.id === updatedTodo.id ? updatedTodo : todo,
     ));
@@ -35,7 +36,7 @@ function TodoApp({ initialTodos }) {
   }
 
   /** delete a todo by id */
-  function remove(id) {
+  function remove(id: string) {
     setTodos(todos.filter(todo => todo.id !== id));
   }
 

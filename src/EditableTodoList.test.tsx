@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import EditableTodoList from "./EditableTodoList";
 
@@ -6,19 +5,19 @@ import EditableTodoList from "./EditableTodoList";
 describe("Tests EditableTodoList component", function () {
   const initialTodos = [
     {
-      id: 1,
+      id: "1",
       title: "Code!",
       description: "Write some code",
       priority: 2,
     },
     {
-      id: 2,
+      id: "2",
       title: "Make dinner",
       description: "Cook something healthy",
       priority: 1,
     },
     {
-      id: 3,
+      id: "3",
       title: "Go to bed",
       description: "In bed by 11:15",
       priority: 3,
@@ -26,11 +25,16 @@ describe("Tests EditableTodoList component", function () {
   ];
 
   it("renders without crashing", function () {
-    render(<EditableTodoList todos={initialTodos}/>)
+    render(<EditableTodoList todos={initialTodos} update={jest.fn} remove={jest.fn} />);
   });
 
   it("displays all todos", function () {
-    const result = render(<EditableTodoList todos={initialTodos} />);
+    const result = render(
+      <EditableTodoList
+        todos={initialTodos}
+        update={jest.fn}
+        remove={jest.fn}
+      />);
 
     expect(result.queryByText("Code!")).toBeInTheDocument();
     expect(result.queryByText("Make dinner")).toBeInTheDocument();

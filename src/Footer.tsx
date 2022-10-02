@@ -1,5 +1,5 @@
 
-/** Site-wide footer for Flüffy Data Enterprises, Inc. */
+/** Site-wide app footer. */
 
 function Footer() {
   return (

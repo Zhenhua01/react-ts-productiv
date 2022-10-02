@@ -3,16 +3,10 @@ import QuoteApp from "./QuoteApp";
 import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+import { ITodo } from "./interfaces";
 
-interface TodoInterface {
-  id: string;
-  title: string;
-  description: string;
-  completed?: boolean;
-  priority: number;
-}
 
-const initialTodos: TodoInterface[]=[
+const initialTodos: ITodo[] = [
   {
     id: "1",
     title: "Code!",
@@ -31,8 +25,7 @@ const initialTodos: TodoInterface[]=[
     description: "In bed by 11:15",
     priority: 3,
   },
-]
-
+];
 
 /** Site application.
  *
@@ -51,14 +44,14 @@ function App() {
       </header>
 
       <section>
-        <QuoteApp/>
+        <QuoteApp />
       </section>
 
       <section className="container mt-4">
-        <TodoApp initialTodos={initialTodos}/>
+        <TodoApp initialTodos={initialTodos} />
         <Footer />
       </section>
-      
+
     </main>
   );
 }

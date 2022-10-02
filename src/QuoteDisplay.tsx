@@ -1,4 +1,6 @@
 import "./QuoteDisplay.css";
+import { IQuoteDisplay } from "./interfaces";
+
 
 /** QuoteDisplay component that shows a quote
  * and a button that will retrieve a new quote
@@ -12,7 +14,7 @@ import "./QuoteDisplay.css";
  * App -> QuoteApp -> QuoteDisplay
  */
 
-function QuoteDisplay({ getQuote, quote }) {
+function QuoteDisplay({ getQuote, quote }: IQuoteDisplay) {
 
   function firstQuote() {
     return <div className="QuoteDisplay">
@@ -23,7 +25,7 @@ function QuoteDisplay({ getQuote, quote }) {
     </div>;
   }
 
-  function showQuote() {
+  if (quote) {
     return <div className="QuoteDisplay">
       <p><i>{quote.text} - {quote.author}</i></p>
       <button
@@ -31,14 +33,10 @@ function QuoteDisplay({ getQuote, quote }) {
         onClick={getQuote}>Nü quøte
       </button>
     </div>;
-
-  }
-
-  if (quote) {
-    return showQuote();
   } else {
     return firstQuote();
   }
+
 };
 
 export default QuoteDisplay;

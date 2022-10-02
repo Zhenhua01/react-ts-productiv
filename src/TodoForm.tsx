@@ -1,5 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { IFormData, IFormProp } from "./interfaces"
 
+const initialData: IFormData = {
+  title: "",
+  description: "",
+  priority: 1
+}
 
 /** Form for adding.
  *
@@ -10,14 +16,12 @@ import React, { useState } from "react";
  * { TodoApp, EditableTodo } -> TodoForm
  */
 
-function TodoForm({
-  handleSave,
-  initialFormData = { id: "", title: "", description: "", priority: 1 } }) {
+function TodoForm({ handleSave, initialFormData=initialData }: IFormProp) {
 
   const [formData, setFormData] = useState(initialFormData);
 
   /** Update form input. */
-  function handleChange(evt) {
+  function handleChange(evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const { name, value } = evt.target;
     setFormData(formData => ({
       ...formData,
@@ -26,7 +30,7 @@ function TodoForm({
   }
 
   /** Call parent function and clear form. */
-  function handleSubmit(evt) {
+  function handleSubmit(evt: React.FormEvent) {
     evt.preventDefault();
     handleSave(formData);
     setFormData(initialFormData);

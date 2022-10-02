@@ -1,5 +1,5 @@
 import Todo from "./Todo";
-import { TodoInterface} from "./interfaces";
+import { ITodo } from "./interfaces";
 
 /** Shows the top todo.
  *
@@ -9,12 +9,12 @@ import { TodoInterface} from "./interfaces";
  * TodoApp -> TopTodo
  */
 
-function TopTodo({ todos }: { todos: TodoInterface[]}) {
+function TopTodo({ todos }: { todos: ITodo[]}) {
   if (todos.length === 0) return null;
 
   // lowest-priority # is the highest priority
   let top = todos.reduce(
-      (acc: TodoInterface, cur: TodoInterface) =>
+      (acc: ITodo, cur: ITodo) =>
       cur.priority < acc.priority ? cur : acc, todos[0]);
 
   return <Todo todo={top} />;

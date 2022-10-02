@@ -1,5 +1,6 @@
-import React from "react";
 import EditableTodo from "./EditableTodo";
+import { ITodo, IEditableTodoList } from "./interfaces";
+
 
 /** Show list of editable todos.
  *
@@ -11,17 +12,17 @@ import EditableTodo from "./EditableTodo";
  * TodoApp -> EditableTodoList -> [ EditableTodo, ... ]
  */
 
-function EditableTodoList({ todos, update, remove }) {
-  return (
-    todos.map((todo) => (
-      <EditableTodo
-        key={todo.id}
-        todo={todo}
-        update={update}
-        remove={remove}
-      />
-    ))
-  );
+function EditableTodoList({ todos, update, remove }: IEditableTodoList) {
+  const editableTodoList = todos.map((todo: ITodo) => (
+    <EditableTodo
+      key={todo.id}
+      todo={todo}
+      update={update}
+      remove={remove}
+    />
+  ));
+
+  return <>{editableTodoList}</>;
 }
 
 export default EditableTodoList;

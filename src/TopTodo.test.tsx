@@ -1,16 +1,16 @@
 import { render } from "@testing-library/react";
 import TopTodo from "./TopTodo";
-import { TodoInterface } from "./interfaces";
+import { ITodo } from "./interfaces";
 
-const todo1: TodoInterface = {
+const todo1: ITodo = {
   id: "1",
   title: "Code!",
   description: "Write important code",
   priority: 2,
 };
 
-const todo2 = {
-  id: "1",
+const todo2: ITodo = {
+  id: "2",
   title: "Code again!",
   description: "Write less-important code",
   priority: 11,
