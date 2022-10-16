@@ -1,0 +1,9 @@
+readme.md
+Dockerfile
+_redirects
+.git
+.gitignore
+.DS_Store
+**/coverage
+node_modules
+build
